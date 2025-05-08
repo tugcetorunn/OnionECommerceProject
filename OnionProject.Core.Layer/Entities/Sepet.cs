@@ -17,8 +17,8 @@ namespace OnionProject.Core.Layer.Entities
         public Uye? Uye { get; set; }
         public Urun? Urun { get; set; }
         public DateTime EklenmeTarihi { get; set; }
-        public DateTime GuncellenmeTarihi { get; set; }
-        public DateTime SilinmeTarihi { get; set; }
+        public DateTime? GuncellenmeTarihi { get; set; }
+        public DateTime? SilinmeTarihi { get; set; }
         public KayitDurumu KayitDurumu { get; set; }
     }
 }

@@ -14,8 +14,8 @@ namespace OnionProject.Core.Layer.Entities
         public string KategoriAdi { get; set; }
         public ICollection<Urun>? Urunler { get; set; }
         public DateTime EklenmeTarihi { get; set; }
-        public DateTime GuncellenmeTarihi { get; set; }
-        public DateTime SilinmeTarihi { get; set; }
+        public DateTime? GuncellenmeTarihi { get; set; }
+        public DateTime? SilinmeTarihi { get; set; }
         public KayitDurumu KayitDurumu { get; set; }
     }
 }

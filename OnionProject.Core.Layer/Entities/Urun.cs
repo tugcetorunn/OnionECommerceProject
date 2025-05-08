@@ -20,8 +20,8 @@ namespace OnionProject.Core.Layer.Entities
         public Kategori? Kategori { get; set; }
         public ICollection<Sepet>? SepettekiUrunler { get; set; } // sepeti temsil eden bir koleksiyon
         public DateTime EklenmeTarihi { get; set; }
-        public DateTime GuncellenmeTarihi { get; set; }
-        public DateTime SilinmeTarihi { get; set; }
+        public DateTime? GuncellenmeTarihi { get; set; }
+        public DateTime? SilinmeTarihi { get; set; }
         public KayitDurumu KayitDurumu { get; set; }
     }
 }
