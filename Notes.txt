@@ -1,0 +1,17 @@
+*** Application Layer(dll)
+	- Models (dtos, view models)
+	- mappers (automapper profiles)
+	- Services (interfaces, implementations)
+
+*** UI
+	- Önce program.cs te serviceleri ekliyoruz (context, identity, automapper, repository, services)
+	- Middleware (/* exception handling,*/ authentication, authorization)
+	- Views (razor pages, views)
+	- Controllers (api controllers, mvc controllers)
+	- ViewModels (view models, dtos)
+	- Mappers (automapper profiles)
+	- Services (interfaces, implementations)
+
+// pazartesiye kadar
+* arealarý oluþtur (admin, uye)
+* urun crud (admin)

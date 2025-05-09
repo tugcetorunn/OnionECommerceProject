@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\Abstracts\" />
-    <Folder Include="Repositories\Concretes\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\OnionProject.Core.Layer\OnionProject.Core.Layer.csproj" />
   </ItemGroup>
 
