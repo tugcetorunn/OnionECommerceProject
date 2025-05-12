@@ -1,0 +1,62 @@
+﻿@model IEnumerable<OnionProject.Application.Layer.Models.DTOs.Urunler.UrunListeleDTO>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@if (User.IsInRole("Admin"))
+{
+    <a asp-action="Ekle" class="btn btn-secondary mt-2">Ekle</a>
+    <br />
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UrunResmi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrunAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fiyat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StokAdedi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kategori)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/images/@item.UrunResmi" style="width:200px;height:150px" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrunAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fiyat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StokAdedi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kategori)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

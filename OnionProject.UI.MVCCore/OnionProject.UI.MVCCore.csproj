@@ -14,4 +14,12 @@
     <ProjectReference Include="..\OnionProject.Application.Layer\OnionProject.Application.Layer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\AdminArea\Data\" />
+    <Folder Include="Areas\AdminArea\Models\" />
+    <Folder Include="Areas\UyeArea\Data\" />
+    <Folder Include="Areas\UyeArea\Models\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>

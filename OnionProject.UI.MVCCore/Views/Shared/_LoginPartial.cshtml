@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using OnionProject.Core.Layer.Entities
+@inject UserManager<Uye> userManager
+
+@if (User.Identity.IsAuthenticated) @* kullanıcı var ise *@
+{
+    @* yönetici ise *@
+    var uye = await userManager.GetUserAsync(User);
+    if(await userManager.IsInRoleAsync(uye, "Admin"))
+    {
+        <a asp-area="AdminArea" asp-controller="Admin" asp-action="Index">Yönetim Paneline Git</a>
+    }
+    else
+    {
+        <a asp-area="UyeArea" asp-controller="Uye" asp-action="Index">Üye Paneline Git</a>
+    }
+
+    <a asp-area="" asp-controller="Login" asp-action="Logout">Çıkış Yap</a>
+    
+}
+else 
+@* kullanıcı yoksa *@
+{
+    <a asp-area="" asp-controller="Login" asp-action="Index">Giriş Yap</a> <br />
+    <a asp-area="" asp-controller="Login" asp-action="Register">Kayıt Ol</a>
+}

@@ -14,7 +14,7 @@ namespace OnionProject.Application.Layer.Services.Login
     public class LoginService : ILoginService
     {
         private readonly UserManager<Uye> userManager;
-        private readonly RoleManager<Rol> roleManager;
+        // private readonly RoleManager<Rol> roleManager;
         private readonly IMapper mapper;
         public LoginService(UserManager<Uye> _userManager, IMapper _mapper)
         {

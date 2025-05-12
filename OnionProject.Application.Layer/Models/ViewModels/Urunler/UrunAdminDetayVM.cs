@@ -1,4 +1,4 @@
-﻿using OnionProject.Core.Layer.Abstracts;
+﻿using OnionProject.Core.Layer.Entities;
 using OnionProject.Core.Layer.Enums;
 using System;
 using System.Collections.Generic;
@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnionProject.Core.Layer.Entities
+namespace OnionProject.Application.Layer.Models.ViewModels.Urunler
 {
-    public class Urun : IEntity
+    public class UrunAdminDetayVM
     {
         public int UrunId { get; set; }
         public string UrunAdi { get; set; }
@@ -17,12 +17,11 @@ namespace OnionProject.Core.Layer.Entities
         public string UrunResmi { get; set; }
         public int StokAdedi { get; set; }
         public int KategoriId { get; set; }
-        public Kategori? Kategori { get; set; }
-        public ICollection<Sepet>? SepettekiUrunler { get; set; } // sepeti temsil eden bir koleksiyon
+        public string Kategori { get; set; } // joinlenmiş veri old için vm
         public DateTime EklenmeTarihi { get; set; }
         public DateTime? GuncellenmeTarihi { get; set; }
         public DateTime? SilinmeTarihi { get; set; }
-        public KayitDurumu KayitDurumu { get; set; }
-        // ekleyen uyeyi göster
+        public string KayitDurumu { get; set; } // ??
+        public KayitDurumu KayitDurumuEnum { get; set; } // enum türünde
     }
 }

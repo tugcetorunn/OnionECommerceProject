@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using OnionProject.Core.Layer.Abstracts;
 using OnionProject.Core.Layer.Enums;
 using OnionProject.Core.Layer.Repositories.Abstracts;
@@ -6,6 +7,7 @@ using OnionProject.Infrastructure.Layer.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,7 +40,7 @@ namespace OnionProject.Infrastructure.Layer.Repositories.Abstracts
             entity.GuncellenmeTarihi = DateTime.Now;
             entity.KayitDurumu = KayitDurumu.Guncellendi;
             context.Update(entity);
-            await context.SaveChangesAsync();
+            await context.SaveChangesAsync(); // son sınavda savechanges i repodaki metodu kullanarak yaptım doğru mu bak...
         }
 
         public async Task<IEnumerable<TEntity>> ListeleAsync()
@@ -59,6 +61,22 @@ namespace OnionProject.Infrastructure.Layer.Repositories.Abstracts
         public async Task<int> SaveChangesAsync()
         {
             return await context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<TResult>> FiltreleVeListeleAsync<TResult>(Expression<Func<TEntity, TResult>> select, Expression<Func<TEntity, bool>> where, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null)
+        {
+            IQueryable<TEntity> query = table.AsNoTracking();
+
+            if(where != null)
+                query = query.Where(where);
+
+            if (include != null)
+                query = include(query);
+
+            if (orderBy != null)
+                return await orderBy(query).Select(select).ToListAsync();
+            else
+                return await query.Select(select).ToListAsync();
         }
     }
 }

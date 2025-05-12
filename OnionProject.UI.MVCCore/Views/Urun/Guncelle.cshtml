@@ -1,0 +1,66 @@
+﻿@model OnionProject.UI.MVCCore.ViewModels.Urunler.UrunGuncelleFormVM
+
+@{
+    ViewData["Title"] = "Guncelle";
+}
+
+<h1>Guncelle</h1>
+
+<h4>UrunGuncelleVM</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Guncelle" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Urun.UrunId" class="form-control" />
+                <span asp-validation-for="Urun.UrunId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.UrunAdi" class="control-label"></label>
+                <input asp-for="Urun.UrunAdi" class="form-control" />
+                <span asp-validation-for="Urun.UrunAdi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.Fiyat" class="control-label"></label>
+                <input asp-for="Urun.Fiyat" class="form-control" />
+                <span asp-validation-for="Urun.Fiyat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.Aciklama" class="control-label"></label>
+                <input asp-for="Urun.Aciklama" class="form-control" />
+                <span asp-validation-for="Urun.Aciklama" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.UrunResmi" class="control-label"></label>
+                <img src="~/images/@Model.Urun.UrunResmi" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.UrunResmiDosya" class="control-label"></label>
+                <input type="file" asp-for="Urun.UrunResmiDosya" class="form-control" />
+                <span asp-validation-for="Urun.UrunResmiDosya" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.StokAdedi" class="control-label"></label>
+                <input asp-for="Urun.StokAdedi" class="form-control" />
+                <span asp-validation-for="Urun.StokAdedi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.KategoriId" class="control-label"></label>
+                <select asp-for="Urun.KategoriId" asp-items="Model.Kategoriler" class="form-control"></select>
+                <span asp-validation-for="Urun.KategoriId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

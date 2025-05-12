@@ -34,7 +34,7 @@ namespace OnionProject.UI.MVCCore.Controllers
                 {
                     //var user = await signInManager.UserManager.FindByIdAsync(result.UyeId.ToString());
                     await signInManager.SignInAsync(await loginService.UyeGetirAsync(result.UyeId), isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Urun");
                 }
                 else
                 {
@@ -67,6 +67,12 @@ namespace OnionProject.UI.MVCCore.Controllers
                 }
             }
             return View(register);
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Index");
         }
     }
 }
