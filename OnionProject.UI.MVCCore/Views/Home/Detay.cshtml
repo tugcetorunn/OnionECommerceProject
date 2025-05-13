@@ -1,0 +1,90 @@
+﻿@model OnionProject.Application.Layer.Models.ViewModels.Urunler.UrunUyeDetayVM
+
+@{
+    ViewData["Title"] = "Detay";
+}
+
+<h1>Detay</h1>
+
+<div>
+    <h4>UrunUyeDetayVM</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UrunId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UrunId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UrunAdi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UrunResmi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UrunResmi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StokAdedi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StokAdedi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Kategori)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Kategori)
+        </dd>
+    </dl>
+</div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div>
+        <form asp-area="UyeArea" asp-controller="Uye" asp-action="SepeteEkle">
+            <input type="hidden" name="uid" value="@Model.UrunId" />
+            <input type="submit" value="Sepete Ekle" class="btn btn-primary" />
+        </form>
+    </div>
+
+    @* <div>
+        <h4>Sepete Ekle</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UrunId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UrunId)
+            </dd>
+        </dl>
+    </div> *@
+}
+@* else
+{
+    <div>
+        <h4>Üye Olmadan Sepete Ekleme Yapamazsınız</h4>
+    </div>
+}}
+ *@
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

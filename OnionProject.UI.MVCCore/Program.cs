@@ -1,6 +1,7 @@
 using OnionProject.Application.Layer.Mapper;
 using OnionProject.Application.Layer.Services.Kategoriler;
 using OnionProject.Application.Layer.Services.Login;
+using OnionProject.Application.Layer.Services.Sepetler;
 using OnionProject.Application.Layer.Services.Urunler;
 using OnionProject.Core.Layer.Entities;
 using OnionProject.Core.Layer.Repositories.Abstracts;
@@ -24,9 +25,11 @@ builder.Services.AddAutoMapper(typeof(ProjectMapper), typeof(UIMapper));
 builder.Services.AddTransient<IUrunRepository, UrunRepository>();
 builder.Services.AddTransient<IKategoriRepository, KategoriRepository>();
 builder.Services.AddTransient<ISepetRepository, SepetRepository>();
+
 builder.Services.AddTransient<ILoginService, LoginService>();
 builder.Services.AddTransient<IUrunService, UrunService>();
 builder.Services.AddTransient<IKategoriService, KategoriService>();
+builder.Services.AddTransient<ISepetService, SepetService>();
 
 var app = builder.Build();
 

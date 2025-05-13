@@ -1,1 +1,68 @@
-﻿<h1>Üye Panel</h1>
+﻿@model IEnumerable<OnionProject.Application.Layer.Models.ViewModels.Sepetler.SepettekiUrunVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SepetId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UyeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrunId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrunAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fiyat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToplamFiyat)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SepetId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UyeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrunId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrunAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fiyat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToplamFiyat)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

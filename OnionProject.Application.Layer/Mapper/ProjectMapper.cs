@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using OnionProject.Application.Layer.Models.DTOs.Kategoriler;
 using OnionProject.Application.Layer.Models.DTOs.Login;
+using OnionProject.Application.Layer.Models.DTOs.Sepetler;
 using OnionProject.Application.Layer.Models.DTOs.Urunler;
 using OnionProject.Application.Layer.Models.ViewModels.Login;
+using OnionProject.Application.Layer.Models.ViewModels.Sepetler;
 using OnionProject.Application.Layer.Models.ViewModels.Urunler;
 using OnionProject.Core.Layer.Entities;
 using System;
@@ -29,6 +31,9 @@ namespace OnionProject.Application.Layer.Mapper
             // CreateMap<UrunEkleDTO, UrunEkleVM>().ReverseMap();
 
             CreateMap<KategoriListeleDTO, Kategori>().ReverseMap();
+
+            CreateMap<SepettekiUrunVM, Sepet>().ReverseMap();
+            CreateMap<SepeteEkleDTO, Sepet>().ReverseMap();
         }
     }
 }
